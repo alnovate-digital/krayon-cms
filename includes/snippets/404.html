@@ -1,0 +1,26 @@
+     <cms:embed 'page_header.html'/>  
+		<!-- 404 Section Start -->
+        <div class="f0f--section pt--100 pb--100">
+            <div class="container">
+                <!-- 404 Content Start -->
+                <div class="f0f--content pt--10 pb--30 text-center">
+                    <div class="title">
+                        <h3 class="h1">404</h3>
+                    </div>
+					<cms:pages masterpage='k-includes/setting.php'>
+						<div class="sub-title text-uppercase">
+							<h4 class="h4">OOPS, sorry we can`t find that page!</h4>
+						</div>
+
+						<div class="desc">
+							<cms:show p404_error/>
+						</div>
+					</cms:pages>
+                    <div class="action">
+                        <a href="<cms:show k_site_link/>" class="btn btn-lg btn-default">Go Home Page<i class="ml--8 fa fa-check-circle"></i></a>
+                    </div>
+                </div>
+                <!-- 404 Content End -->
+            </div>
+        </div>
+        <!-- 404 Section End -->

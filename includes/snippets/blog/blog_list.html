@@ -1,0 +1,62 @@
+       <!-- Blog Section Start -->
+        <section class="blog--section pt--20 pb--20">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 pb--20">
+                        <!-- Post Items Start -->
+                        <div class="post--items">
+						<cms:pages masterpage='blog/index.php' paginate='1' limit='3'>
+                            <!-- Post Item Start -->
+                            <div class="post--item">
+                                <div class="post--img">
+                                    <img src="<cms:show feature_image/>" alt="<cms:show k_page_title/>">
+                                    <p class="date"><a href="#"><cms:date k_page_date format='jS M, y'/></a></p>
+                                </div>
+                                <div class="post--inner">
+                                    <ul class="nav meta">
+                                        <li><a href="#"><i class="fa fa-user-o"></i><cms:show author/></a></li>
+                                        <li><a href="#"><i class="fa fa-heart-o"></i><cms:show page_hits/></a></li>
+                                    </ul>
+                                    <div class="title">
+                                        <h2 class="h4"><a href="<cms:show k_page_link/>" class="btn-link"><cms:show k_page_title/></a></h2>
+                                    </div>
+                                    <div class="content">
+										<cms:excerptHTML count='25' ignore='img, br, blank, table'><cms:show post_content/></cms:excerptHTML>
+                                    </div>
+                                    <div class="action">
+                                        <a href="<cms:show k_page_link/>" class="btn btn-lg btn-default">Continue Reading<i class="ml--8 fa fa-long-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Post Item End -->
+							<cms:no_results>
+							<h3>No Posts Result</h3>
+								<p>Welcome to our blog! Unfortunately, no posts to show yet. The content will be updated soon. See you around.</p>
+							<button class="btn btn-lg btn-default"><a href="<cms:show k_site_link/>" style="color:inherit">Back to Home</a></button>
+							</cms:no_results>
+						</cms:pages>
+                        </div>
+                        <!-- Post Items End -->
+						<cms:pages masterpage='blog/index.php' paginate='1' limit='3'>
+                        <!-- Pagination Start -->
+                        <nav class="pagination--nav text-center">
+                            <ul class="pagination">
+							<cms:paginator adjacents='1'>
+								<cms:if k_crumb_type='prev' ><li><a href="<cms:show k_crumb_link />" class="btn btn-default active"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li></cms:if>
+								<cms:if k_crumb_type='page' ><li <cms:if k_crumb_current >class="active"</cms:if> ><a href="<cms:show k_crumb_link />" class="btn btn-default"><cms:show k_crumb_text /></a></li></cms:if>
+								<cms:if k_crumb_type='next' ><li><a href="<cms:show k_crumb_link />" class="btn btn-default active"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li></cms:if>
+							</cms:paginator>
+                            </ul>
+                        </nav>
+                        <!-- Pagination End -->
+						</cms:pages>
+                    </div>
+                    <div class="col-md-4 pb--60">
+                        <!-- Sidebar Start -->
+							<cms:embed 'blog/blog_aside.html'/>
+                        <!-- Sidebar End -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Blog Section End -->

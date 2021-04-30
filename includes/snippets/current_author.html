@@ -1,0 +1,6 @@
+<cms:php>
+    global $AUTH;
+    if( $AUTH->user->id != -1 ){
+        echo $AUTH->user->title;
+    }
+</cms:php>

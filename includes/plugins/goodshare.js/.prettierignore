@@ -1,0 +1,7 @@
+.github/
+.editorconfig
+.gitignore
+.prettierignore
+goodshare.min.js
+docs/
+*.md

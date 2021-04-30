@@ -1,0 +1,164 @@
+<cms:pages masterpage="k-includes/setting.php">
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="<cms:show meta_author/>">
+<meta name="theme-color" content="<cms:show meta_theme_color/>" />
+<meta name="google-site-verification" content="<cms:show google_verification/>" />
+<link rel="shortcut icon" href="<cms:show site_favicon/>">
+<title><cms:show site_name/> - Search result has been found!</title>
+
+    <!-- ==== Google Font ==== -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,900%7CLato:300,400i,900%7CRaleway:100,300,300i,400,500,500i,600,700">
+	<cms:minify 'css' into='k-includes/assets/css/style.min.css'>
+	    <!-- ==== Font Awesome ==== -->
+		k-includes/assets/css/font-awesome.min.css
+		<!-- ==== Bootstrap Framework ==== -->
+		k-includes/assets/css/bootstrap.min.css
+		<!-- ==== jQuery UI Plugin ==== -->
+		k-includes/assets/css/jquery-ui.min.css   
+		<!-- ==== Owl Carousel Plugin ==== -->
+		k-includes/assets/css/owl.carousel.min.css  
+		<!-- ==== Bar Rating Plugin ==== -->
+		k-includes/assets/css/fontawesome-stars-o.min.css  
+		<!-- ==== Main Stylesheet ==== -->
+		k-includes/assets/style.css
+		<!-- ==== Responsive Stylesheet ==== -->
+		k-includes/assets/css/responsive-style.css
+		<!-- ==== Custom Stylesheet ==== -->
+		k-includes/assets/css/custom.css
+	</cms:minify>
+    <!-- ==== Theme Color Stylesheet ==== -->
+    <link rel="stylesheet" href="<cms:show k_site_link/>k-includes/assets/css/colors/theme-color-9.css" id="changeColorScheme">
+
+    <!-- ==== HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries ==== -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preloader--spinners">
+            <span class="preloader--spinner"></span>
+            <span class="preloader--spinner"></span>
+        </div>
+    </div>
+    <!-- Preloader End -->
+	<!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+	<!-- Facebook Comment SDK End-->   
+	
+   <!-- Wrapper Start -->
+    <div class="wrapper">
+        <!-- Header Section Start -->
+        <header class="header--section">
+            <!-- Header Topbar Start -->
+            <div class="header--topbar">
+                <div class="container">
+                    <!-- Header Topbar Social Start -->
+                    <ul class="nav social float--left hidden-xs">
+					<cms:show_repeatable 'site_social'>
+                        <li><a href="<cms:show site_social_link/>"><i class="fa <cms:show social_fa_icon/>"></i></a></li>
+					</cms:show_repeatable>
+                    </ul>
+                    <!-- Header Topbar Social End -->
+
+                    <!-- Header Topbar Button Start -->
+                    <ul class="nav button float--right">
+                        <li><a href="<cms:show client_area/>" class="btn btn-sm btn-primary" >Client Area</a></li>
+                    </ul>
+                    <!-- Header Topbar Button End -->
+
+                    <!-- Header Topbar Links Start -->
+                    <ul class="nav links float--right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="text-c--main mr--8 fa fa-users"></i><span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu">
+							<cms:show_repeatable 'topbar'>
+                                <li><a href="<cms:show topbar_link/>"><cms:show topbar_item/></a></li>
+							</cms:show_repeatable>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="text-c--main mr--8 fa fa-comment"></i><span>Live Chat</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Header Topbar Links End -->
+                </div>
+            </div>
+            <!-- Header Topbar End -->
+
+            <!-- Header Navbar Start -->
+            <nav class="header--navbar navbar" data-trigger="sticky">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#headerNav">
+                            <span class="sr-only">Toggle Navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <!-- Logo Start -->
+                        <a href="<cms:show k_site_link/>" class="navbar-brand">
+                            <img src="<cms:show site_logox1/>" srcset="<cms:show site_logox1/> 1x, <cms:show site_logox2/> 2x" alt="<cms:show site_name/>" style="height:30px; margin:7.5px 0;">
+                        </a>
+                        <!-- Logo End -->
+                    </div>
+
+                    <div id="headerNav" class="navbar-collapse collapse float--right">
+					    <!-- Header Nav Links Start -->
+					<cms:nested_pages masterpage='k-includes/menu.php' extended_info='1'>
+						<cms:if k_level_start>
+							<cms:if k_level='0'>
+							<ul class="header--nav-links nav">
+							<cms:else/>
+								<ul class="dropdown-menu">
+							</cms:if>
+						</cms:if>
+							<cms:if k_element_start>
+								<cms:if k_level='0'>
+									<cms:if k_total_children><cms:if k_is_active><li class="dropdown active"><cms:else/><li class="dropdown"></cms:if>
+									<a href="<cms:show k_menu_link/>" class="dropdown-toggle" data-toggle="dropdown"><cms:show k_menu_title/></a>
+									<cms:else/>
+									<cms:if k_is_active><li class="active"><cms:else/><li></cms:if>
+									<a href="<cms:show k_menu_link/>"><cms:show k_menu_title/></a></cms:if>
+								<cms:else/>
+									<li>
+									<a href="<cms:show k_menu_link/>"><cms:show k_menu_title/></a>
+								</cms:if>
+							</cms:if>
+							<cms:if k_element_end>
+                            </li>
+							</cms:if>
+						<cms:if k_level_end>
+                        </ul>
+						</cms:if>
+					</cms:nested_pages>
+						<!-- Header Nav Links End -->
+                    </div>
+                </div>
+            </nav>
+            <!-- Header Navbar End -->
+        </header>
+        <!-- Header Section End -->
+</cms:pages>

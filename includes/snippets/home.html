@@ -1,0 +1,24 @@
+<cms:pages masterpage='index.php' page_name='home'>
+		<cms:show_mosaic 'header'>
+			<cms:if k_tile_name ='slider'>
+				<cms:embed 'navbar.html'/>
+				<cms:embed 'slider.html'/>
+			</cms:if>
+		</cms:show_mosaic>
+<div class="main-content">
+		<cms:show_mosaic 'content'>
+			<cms:if k_tile_name ='text'>
+				<cms:embed 'section/text_section.html'/>
+			</cms:if>
+			<cms:if k_tile_name='section'>
+				<cms:show_repeatable 'section'>
+					<cms:embed "section/<cms:show section_type/>.html"/>
+				</cms:show_repeatable>
+			</cms:if>
+			<cms:if k_tile_name ='banner'>
+				<cms:embed 'banner.html'/>
+			</cms:if>
+		</cms:show_mosaic>
+		<cms:embed 'footer.html'/>
+</div>
+</cms:pages>

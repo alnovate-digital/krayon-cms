@@ -1,0 +1,11 @@
+<cms:php>
+    global $DB;
+    $str = 'Please Select=-';
+    $rs = $DB->select( K_TBL_USERS, array('title') );
+    if( count($rs) ){
+        foreach( $rs as $rec ){
+            $str .= '|' . $rec['title'];
+        }
+    }    
+    echo( $str );
+</cms:php>

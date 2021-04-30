@@ -1,0 +1,47 @@
+				<!-- ==================== Start Slider ==================== -->
+		    <header class="slider slider-prlx fixed-slider">
+		        <div class="swiper-container parallax-slider">
+		            <div class="swiper-wrapper">
+									<cms:show_repeatable 'slider'>
+		                <div class="swiper-slide">
+		                    <div class="bg-img valign" data-background="<cms:show slider_image/>" data-overlay-dark="6">
+		                        <div class="container">
+		                            <div class="row">
+		                                <div class="col-lg-7 col-md-9">
+		                                    <div class="caption center">
+		                                        <h1 data-splitting><cms:show slider_text/></h1>
+		                                        <p><cms:show slider_desc/></p>
+		                                        <a href="<cms:show btn_default_link/>" class="simple-btn mt-50">
+		                                            <span><cms:show btn_default/></span>
+		                                        </a>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+									</cms:show_repeatable>
+		            </div>
+
+		            <!-- slider setting -->
+		            <div class="setone setwo">
+		                <div class="swiper-button-next swiper-nav-ctrl next-ctrl cursor-pointer">
+		                    <i class="fas fa-chevron-right"></i>
+		                </div>
+		                <div class="swiper-button-prev swiper-nav-ctrl prev-ctrl cursor-pointer">
+		                    <i class="fas fa-chevron-left"></i>
+		                </div>
+		            </div>
+		            <div class="swiper-pagination top botm custom-font"></div>
+								<cms:pages masterpage="includes/setting.php">
+			            <div class="social-icon">
+										<cms:show_repeatable 'site_social'>
+											<a href="<cms:show site_social_link/>" class="icon">
+													<i class="fab <cms:show social_fa_icon/>"></i>
+											</a>
+										</cms:show_repeatable>
+			            </div>
+								</cms:pages>
+		        </div>
+		    </header>
+		    <!-- ==================== End Slider ==================== -->

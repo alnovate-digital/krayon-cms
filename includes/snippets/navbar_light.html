@@ -1,0 +1,59 @@
+<cms:pages masterpage="includes/setting.php"> <!-- Start cms:pages for setting.php -->   
+   <!-- ==================== Start Navbar ==================== -->
+
+    <nav class="navbar light navbar-expand-lg">
+        <div class="container">
+            <!-- Logo -->
+            <a class="logo" href="<cms:show k_site_link/>">
+                <img src="<cms:show site_logo_dark/>" alt="<cms:show site_name/>">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icon-bar"><i class="fas fa-bars"></i></span>
+            </button>
+            <!-- navbar links -->
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<!-- Start cms:nested_pages for menu.php -->
+						<cms:nested_pages masterpage='includes/menu.php' extended_info='1'>
+							<cms:if k_level_start>
+								<cms:if k_level='0'>
+								<ul class="navbar-nav ml-auto">
+								<cms:else/>
+									<ul class="dropdown-menu">
+								</cms:if>
+							</cms:if>
+								<cms:if k_element_start>
+									<cms:if k_level='0'>
+										<cms:if k_total_children>
+											<li class="nav-item dropdown">
+											<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+													aria-haspopup="true" aria-expanded="false"><cms:show k_menu_title/></a>
+										<cms:else/>
+											<li class="nav-item"><a class="nav-link" href="<cms:show k_menu_link/>"><cms:show k_menu_title/></a>
+										</cms:if>
+									<cms:else/>
+										<a class="dropdown-item" href="<cms:show k_menu_link/>"><cms:show k_menu_title/></a>
+									</cms:if>
+								</cms:if>
+				        <cms:if k_element_end>
+									</li>
+								</cms:if>
+				    		<cms:if k_level_end>
+				          </ul>
+								</cms:if>
+						</cms:nested_pages> <!-- End cms:nested_pages fro menu.php -->
+						</div>
+                <div class="search">
+                    <span class="icon pe-7s-search cursor-pointer"></span>
+                    <div class="search-form text-center custom-font">
+                        <form>
+                            <input type="text" name="search" placeholder="Search">
+                        </form>
+                        <span class="close pe-7s-close cursor-pointer"></span>
+                    </div>
+                </div>
+        </div>
+    </nav>
+
+    <!-- ==================== End Navbar ==================== -->
+</cms:pages>

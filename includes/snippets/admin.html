@@ -1,0 +1,31 @@
+
+<style>
+.icon-bar {
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 9999;
+}
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 12px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+}
+.icon-bar a:hover {
+  background-color: #aaa;
+}
+.k-admin {
+  background: #606060;
+  color: white;
+}
+</style>
+
+<div class="icon-bar">
+  <a href="<cms:show k_admin_link/><cms:show k_admin_page/>" class="k-admin"><i class="fa fa-columns"></i></a> 
+</div>
+

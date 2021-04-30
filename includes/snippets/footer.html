@@ -1,0 +1,47 @@
+<cms:pages masterpage='includes/setting.php'>
+<!-- ==================== Start Footer ==================== -->
+
+<footer class="footer-half sub-bg section-padding pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="cont">
+                    <div class="logo">
+                        <a href="<cms:show k_site_link/>">
+                            <img src="<cms:show footer_logo/>">
+                        </a>
+                    </div>
+                    <div class="con-info custom-font">
+                        <cms:show contact_address/>
+                    </div>
+                    <div class="social-icon">
+                        <h6 class="custom-font stit simple-btn">Follow Us</h6>
+                        <div class="social">
+                          <cms:show_repeatable 'site_social'>
+                            <a href="<cms:show site_social_link/>" class="icon">
+                                <i class="fab <cms:show social_fa_icon/>"></i>
+                            </a>
+                          </cms:show_repeatable>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 offset-lg-2">
+                <div class="con-info custom-font">
+                    <h6 class="custom-font stit">Company</h6>
+                    <ul>
+					<cms:show_repeatable 'footer_nav'>
+						<li><a href="<cms:show footer_nav_link/>"><cms:show footer_nav_item/></a></li>
+					</cms:show_repeatable>
+					</ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyrights text-center">
+            <p><cms:show copyrights/></p>
+        </div>
+    </div>
+</footer>
+
+<!-- ==================== End Footer ==================== -->
+</cms:pages>

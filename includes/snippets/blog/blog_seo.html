@@ -1,0 +1,98 @@
+<cms:pages masterpage='blog/index.php'>
+	<cms:set g_template_title=k_template_title 'global'/>
+	<cms:set g_template_link=k_template_link 'global'/>
+</cms:pages>
+<cms:pages masterpage='includes/setting.php'>
+	<cms:set g_site_name=site_name 'global'/>
+	<cms:set g_site_favicon=site_favicon 'global'/>
+	<cms:set g_meta_title=meta_title 'global'/>
+	<cms:set g_meta_desc=meta_desc 'global'/>
+	<cms:set g_meta_author=meta_author 'global'/>
+	<cms:set g_meta_theme_color=meta_theme_color 'global'/>
+	<cms:set g_site_open_graph=site_open_graph 'global'/>
+	<cms:set g_google_verification=meta_google_verification 'global'/>
+	<cms:set g_facebook_app_id=meta_facebook_app_id 'global'/>
+</cms:pages>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="<cms:show g_meta_author/>">
+<meta name="theme-color" content="<cms:show g_meta_theme_color/>" />
+<meta name="google-site-verification" content="<cms:show g_google_verification/>" />
+<link rel="shortcut icon" href="<cms:show g_site_favicon/>">
+
+<cms:if k_is_page>
+<title><cms:show k_page_title/></title>
+<meta name="description" content="<cms:excerpt count='25'><cms:show post_content/></cms:excerpt>">
+<meta name="keywords" content="<cms:if k_is_home><cms:pages masterpage='blog/tags.php' order='asc'><cms:if k_count gt '1'>, </cms:if><cms:show k_page_title /></cms:pages><cms:else/><cms:pages masterpage='blog/tag.php' custom_field="blog/index.php::tag=<cms:show k_page_name />" order='asc'><cms:if k_count gt '1'>, </cms:if><cms:show k_page_title /></cms:pages></cms:if>">
+<meta name="image" content="<cms:show feature_image/>" />
+<meta name="application-name" content="<cms:show g_site_name/>" />
+
+<!-- SEO Optimised-->
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="<cms:show k_page_link/>" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="<cms:show k_page_title/>" />
+<meta property="og:description" content="<cms:excerpt count='25'><cms:show post_content/></cms:excerpt>" />
+<meta property="og:image" content="<cms:show feature_image/>" />
+<meta property="og:site_name" content="<cms:show g_site_name/>" />
+<meta property="fb:app_id" content="<cms:show g_facebook_app_id/>" />
+<!-- / SEO -->
+
+<cms:else/>
+<cms:if k_is_folder>
+<title><cms:show k_folder_title/></title>
+<meta name="description" content="<cms:excerpt count='50'><cms:show k_folder_desc/></cms:excerpt>">
+<meta name="keywords" content="<cms:if k_is_home><cms:pages masterpage='blog/tags.php' order='asc'><cms:if k_count gt '1'>, </cms:if><cms:show k_page_title /></cms:pages><cms:else/><cms:pages masterpage='blog/tag.php' custom_field="blog/index.php::tag=<cms:show k_page_name />" order='asc'><cms:if k_count gt '1'>, </cms:if><cms:show k_page_title /></cms:pages></cms:if>">
+<meta name="image" content="<cms:show k_folder_image/>" />
+<meta name="application-name" content="<cms:show g_site_name/>" />
+<!-- SEO Optimised-->
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="<cms:show k_page_link/>" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="<cms:if k_is_home><cms:show g_template_title/><cms:else/><cms:show k_page_title/></cms:if>" />
+<meta property="og:description" content="<cms:excerpt count='25'><cms:show post_content/></cms:excerpt>" />
+<meta property="og:image" content="<cms:show feature_image/>" />
+<meta property="og:site_name" content="<cms:show g_site_name/>" />
+<meta property="fb:app_id" content="<cms:show g_facebook_app_id/>" />
+<!-- / SEO -->
+
+<cms:else/>
+<cms:if k_is_home>
+<title><cms:show g_site_name/> - <cms:if k_template_title!='Page' ><cms:show k_template_title/><cms:else/><cms:show g_meta_title/></cms:if></title>
+<meta name="description" content="<cms:show g_meta_desc/>">
+<meta name="keywords" content="<cms:if k_is_home><cms:pages masterpage='blog/tags.php' order='asc'><cms:if k_count gt '1'>, </cms:if><cms:show k_page_title /></cms:pages><cms:else/><cms:pages masterpage='blog/tag.php' custom_field="blog/index.php::tag=<cms:show k_page_name />" order='asc'><cms:if k_count gt '1'>, </cms:if><cms:show k_page_title /></cms:pages></cms:if>">
+<meta name="image" content="<cms:show g_site_open_graph/>" />
+<meta name="application-name" content="<cms:show g_site_name/>" />
+<!-- SEO Optimised-->
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="<cms:show k_page_link/>" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="<cms:if k_is_home><cms:show g_template_title/><cms:else/><cms:show k_page_title/></cms:if>" />
+<meta property="og:description" content="<cms:excerpt count='25'><cms:show post_content/></cms:excerpt>" />
+<meta property="og:image" content="<cms:show feature_image/>" />
+<meta property="og:site_name" content="<cms:show g_site_name/>" />
+<meta property="fb:app_id" content="<cms:show g_facebook_app_id/>" />
+<!-- / SEO -->
+
+<cms:else/>
+<title><cms:show k_template_title/></title>
+<meta name="description" content="<cms:excerpt count='25'><cms:show post_content/></cms:excerpt>">
+<meta name="keywords" content="<cms:if k_is_home><cms:pages masterpage='blog/tags.php' order='asc'><cms:if k_count gt '1'>, </cms:if><cms:show k_page_title /></cms:pages><cms:else/><cms:pages masterpage='blog/tag.php' custom_field="blog/index.php::tag=<cms:show k_page_name />" order='asc'><cms:if k_count gt '1'>, </cms:if><cms:show k_page_title /></cms:pages></cms:if>">
+<meta name="image" content="<cms:show feature_image/>" />
+<meta name="application-name" content="<cms:show g_site_name/>" />
+<!-- SEO Optimised-->
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="<cms:show k_page_link/>" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="<cms:if k_is_home><cms:show g_template_title/><cms:else/><cms:show k_page_title/></cms:if>" />
+<meta property="og:description" content="<cms:excerpt count='25'><cms:show post_content/></cms:excerpt>" />
+<meta property="og:image" content="<cms:show feature_image/>" />
+<meta property="og:site_name" content="<cms:show g_site_name/>" />
+<meta property="fb:app_id" content="<cms:show g_facebook_app_id/>" />
+<!-- / SEO -->
+
+</cms:if>
+</cms:if>
+</cms:if>
+

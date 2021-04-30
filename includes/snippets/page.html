@@ -1,0 +1,41 @@
+
+<cms:embed 'header.html'/>
+
+<cms:if k_is_page>
+		<cms:show_mosaic 'header'>
+			<cms:if k_tile_name ='slider'>
+				<cms:embed 'navbar.html'/>
+				<cms:embed 'slider.html'/>
+			</cms:if>
+			<cms:if k_tile_name ='image_banner'>
+				<cms:embed 'navbar.html'/>
+				<cms:embed 'image_banner.html'/>
+			</cms:if>
+			<cms:if k_tile_name ='text_banner'>
+				<cms:embed 'navbar_light.html'/>
+				<cms:embed 'text_banner.html'/>
+			</cms:if>
+		</cms:show_mosaic>
+<div class="main-content">
+		<cms:show_mosaic 'content'>
+			<cms:if k_tile_name ='text'>
+				<cms:embed 'section/text_section.html'/>
+			</cms:if>
+			<cms:if k_tile_name='section'>
+				<cms:show_repeatable 'section'>
+					<cms:embed "section/<cms:show section_type/>.html"/>
+				</cms:show_repeatable>
+			</cms:if>
+			<cms:if k_tile_name='contact_page'>
+					<cms:embed "page/contact_page.html"/>
+			</cms:if>
+			<cms:if k_tile_name ='banner'>
+				<cms:embed 'banner.html'/>
+			</cms:if>
+		</cms:show_mosaic>
+		<cms:embed 'footer.html'/>
+<cms:else/>
+			<cms:embed 'home.html'/>
+</cms:if>
+
+</div>

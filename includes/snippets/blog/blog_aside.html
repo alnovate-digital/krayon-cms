@@ -1,0 +1,92 @@
+<cms:pages masterpage='includes/setting.php'>
+	<cms:set g_widget_search=widget_search 'global'/>
+	<cms:set g_widget_recent=widget_recent 'global'/>
+	<cms:set g_widget_popular=widget_popular 'global'/>
+	<cms:set g_widget_tag=widget_tag 'global'/>
+</cms:pages>
+                        <div class="sidebar">
+                            <!-- Widget Start -->
+                            <div class="widget" style="display:<cms:show g_widget_search/>">
+                                <!-- Search Widget Start -->
+                                <div class="search--widget">
+									<cms:search_form form="searchform" msg="Searching for..." button="Search" processor="<cms:show k_site_link/>blog/search.php"></cms:search_form>
+							   </div>
+                                <!-- Search Widget End -->
+                            </div>
+                            <!-- Widget End -->
+                            <!-- Widget Start -->
+                            <div class="widget" style="display:<cms:show g_widget_categories/>">
+                                <h2 class="h4 widget--title text-uppercase">Categories</h2>
+                                <!-- Nav Widget Start -->
+                                <div class="nav--widget">
+                                    <ul class="nav">
+
+										<cms:if k_count gt '0'>
+										<li></cms:if>
+											<a href="<cms:show k_page_link />">
+												<span class="text"><cms:show k_page_title /></span>
+												<span class="count"><cms:show k_rel_count/></span>
+											</a>
+
+										</li>  
+                                    </ul>
+                                </div>
+                                <!-- Nav Widget End -->
+                            </div>
+                            <!-- Widget End -->
+                            <!-- Widget Start -->
+                            <div class="widget" style="display:<cms:show g_widget_recent/>">
+                                <h2 class="h4 widget--title text-uppercase">Recent Post</h2>
+                                <!-- Recent Posts Widget Start -->
+                                <div class="recent-posts--widget">
+                                    <ul class="nav">
+									<cms:pages masterpage='blog/index.php' limit='3'>
+                                        <li class="clearfix">
+                                            <div class="img mr--15 float--left">
+                                                <a href="<cms:show k_page_link/>"><img src="<cms:show feature_image/>" style="width:100px; height:100px; object-fit:cover;" alt="<cms:show k_page_title/>"></a>
+                                            </div>
+                                            <div class="info">
+                                                <p class="title"><a href="<cms:show k_page_link/>" class="btn-link"><cms:show k_page_title/></a></p>
+                                                <p class="date"><a href="<cms:show k_page_link/>" class="btn-link"><cms:show k_page_date/></a></p>
+                                            </div>
+                                        </li>
+									</cms:pages>
+                                    </ul>
+                                </div>
+                                <!-- Recent Posts Widget End -->
+                            </div>
+                            <!-- Widget End -->														<!-- Widget Start -->
+                            <div class="widget" style="display:<cms:show g_widget_popular/>">
+                                <h2 class="h4 widget--title text-uppercase">Most Viewed Post</h2>
+                                <!-- Popular Posts Widget Start -->
+                                <div class="recent-posts--widget">
+                                    <ul class="nav">
+									<cms:pages masterpage='blog/index.php' orderby='page_hits' limit='3'>
+                                        <li class="clearfix">
+                                            <div class="img mr--15 float--left">
+                                                <a href="<cms:show k_page_link/>"><img src="<cms:show feature_image/>" style="width:100px; height:100px; object-fit:cover;" alt="<cms:show k_page_title/>"></a>
+                                            </div>
+                                            <div class="info">
+                                                <p class="title"><a href="<cms:show k_page_link/>" class="btn-link"><cms:show k_page_title/></a></p>
+                                                <p class="date"><a href="<cms:show k_page_link/>" class="btn-link"><cms:show k_page_date/></a></p>
+                                            </div>
+                                        </li>
+									</cms:pages>
+                                    </ul>
+                                </div>
+                                <!-- Popular Posts Widget End -->
+                            </div>
+                            <!-- Widget End -->
+                            <!-- Widget Start -->
+                            <div class="widget" style="display:<cms:show g_widget_tag/>">
+                                <h2 class="h4 widget--title text-uppercase">Tags</h2>
+                                <!-- Tagcloud Start -->
+                                <div class="tagcloud">
+                                <cms:pages masterpage='blog/tag.php' custom_field="blog/index.php::tag=ANY" order='asc'>
+									<a href="<cms:show k_page_link />"><cms:show k_page_title /></a>
+								</cms:pages>
+                                </div>
+                                <!-- Tagcloud End -->
+                            </div>
+                            <!-- Widget End -->
+                        </div>

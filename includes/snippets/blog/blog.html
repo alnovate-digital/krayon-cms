@@ -1,0 +1,55 @@
+<!-- Blog Section Start -->
+<section class="blog--section pt--20 pb--20">
+	<div class="container">
+		<div class="row">
+            <div class="col-md-8 pb--20">
+                <!-- Post Items Start -->
+                <div class="post--items">
+                    <!-- Post Item Start -->
+                    <div class="post--item post--single">
+						<div class="post--img"> 
+							<img src="<cms:show feature_image/>"" alt="" data-rjs="2" data-rjs-processed="true" width="750" height="389"> 
+							<p class="date"><a href="#"><cms:date k_page_date format='jS M'/></a><a href="#"><cms:date k_page_date format='Y'/></a></p>
+						</div>
+                        <div class="post--inner">
+                            <div class="content--inner">
+								<cms:show post_content/>
+							</div>
+                        </div>
+                        <div class="post--footer">
+                            <div class="tags">
+                                <p>Tags:</p>
+								<div class="tagcloud">
+									<cms:capture into='my_tag'>
+										<cms:related_pages 'tag' >
+											<cms:show my_tag /><cms:if k_count gt '1'>,</cms:if> <a href="<cms:show k_page_link />"><cms:show k_page_title /></a>
+										</cms:related_pages>
+									</cms:capture>
+									<cms:if my_tag><cms:show my_tag /></cms:if>
+                                </div>
+                            </div>
+                            <div class="social">
+                                <p>Share:</p>
+                                <ul class="social--inner nav">
+                                    <li><a href="#" data-social="facebook"><i class="fa fa-facebook"></i></a></li>
+									<li><a href="#" data-social="twitter"><i class="fa fa-twitter"></i></a></li>
+                                </ul>		
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Post Item End -->
+                </div>
+                <!-- Post Items End -->
+                <!-- Comment Start -->
+				<div class="fb-comments" data-href="https://www.sitegine.com" data-numposts="5"></div>
+                <!-- Comment End -->
+            </div>
+            <div class="col-md-4 pb--60">
+                <!-- Sidebar Start -->
+				<cms:embed 'blog/blog_aside.html'/>
+                <!-- Sidebar End -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog Section End -->

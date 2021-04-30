@@ -1,0 +1,37 @@
+<!-- Main content -->
+<section class="content">
+	<div class="row">		
+        <div class="col-md-6">
+          <!-- Application buttons -->
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">
+					Welcome back,
+					<cms:php>
+						global $AUTH;
+						if( $AUTH->user->id != -1 ){
+							echo $AUTH->user->title;
+						}
+					</cms:php>!
+			  </h3>
+            </div>
+            <div class="box-body">
+              	<p>
+					Let get started!
+				</p>
+              <a class="btn btn-app">
+                <i class="fa fa-edit"></i> Add Post
+              </a>
+              <a class="btn btn-app">
+                <i class="fa fa-file-text-o"></i> Add Page
+              </a>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /. row -->
+</section>
+<!-- /.content -->

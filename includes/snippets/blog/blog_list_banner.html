@@ -1,0 +1,27 @@
+<cms:pages masterpage='blog/index.php' limit='1'>
+<!-- Page Header Section Start -->
+<section class="page--header--section banner--item pt--130 pb--60 bg--overlay" data-bg-img="<cms:show feature_image/>">
+    <div class="container h--100">
+
+            <!-- Page Header Title Start -->
+            <div class="page--header-title text-capitalize">
+                <h2 class="h1"><cms:show k_template_title/></h2>
+				<hr>
+				<h2 class="h3">Stay informed on our blog</h2>
+            </div>
+            <!-- Page Header Title End -->
+    </div>
+</section>
+<!-- Page Header Section End -->
+</cms:pages>
+<div class="container pt--10">
+	<!-- Page Header Breadcrumb Start -->
+    <div class="page--header-breadcrumb text-capitalize">
+		<ol class="breadcrumb">
+            <li><a href="<cms:show k_site_link/>" class="btn-link"><i class="fa fa-home"></i></a></li>
+			<cms:if k_template_title!='Blog'><li><a href="<cms:link masterpage='blog/index.php' />" class="btn-link <cms:if k_template_title='Blog'>active</cms:if>">Blog</a></li></cms:if>
+            <li><a href="<cms:show k_template_link/>" class="btn-link active"><cms:show k_template_title/></a></li>
+        </ol>
+    </div>
+    <!-- Page Header Breadcrumb End -->
+</div>
